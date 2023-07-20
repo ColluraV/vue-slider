@@ -31,28 +31,29 @@
                                             <!--descrizione in absolute-->
                 <div class="container-descrizione absolute d-flex">
                     <div class="descrizione">
-                        <h5>{{titles[activeIndex]}}</h5>
-                        <p>{{text[activeIndex]}}</p>
+                        <h5>{{titles[activeIndex]}}</h5>    <!--titolo-->
+                        <p>{{text[activeIndex]}}</p>        <!--didascalia-->
                     </div>
                 </div>
 
             </div>
 
             
-            <div class="col-2 d-flex flex-column right-selector relative">     <!--nav selettore-->
+            <div class="col-2 d-flex flex-column right-selector relative">     <!--nav destro-->
 
-                <div class="thumb"
+                <div class="thumb"   
                     
-                    v-for="(thumbImg, i) in images"
+                    v-for="(thumbImg, i) in images" 
+
                     v-bind:id="(activeIndex === i ? 'active' : '')"
-                    @click = "onThumbClick(i)">
+
+                    @click = "onThumbClick(i)"
+                    v-on:mouseover="mouseover"
+                    v-on:mouseleave="mouseleave">
+
                     <img v-bind:src="thumbImg">
+
                 </div>
-                <!--<div style="background-image: url(imgs/01.webp);" class="selettore"></div>
-                <div style="background-image: url(imgs/02.webp);" class="selettore"></div>
-                <div style="background-image: url(imgs/03.webp);" class="selettore"></div>
-                <div style="background-image: url(imgs/04.webp);" class="selettore"></div>
-                <div style="background-image: url(imgs/05.webp);" class="selettore"></div>-->
 
                 <div type="button" class="btn absolute go-top" @click = "upBtnClick()"><i class="fa-solid fa-circle-chevron-up"></i></div>
                 <div type="button" class="btn absolute go-down" @click = "downBtnClick()"><i class="fa-solid fa-circle-chevron-down"></i></div>

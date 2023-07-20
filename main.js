@@ -63,17 +63,26 @@ const app = createApp({
             if ( this.activeIndex > 4){
                  this.activeIndex = 0;
             }
-        }
-    },
-    mounted(){
-    
-        function incrementa() {
-            this.activeIndex = parseInt(this.activeIndex + 1);
-            console.log(this.activeIndex);
+        },
+
+            mouseover: function(){
+            this.countDown = 9999;
+            console.log (this.countDown)
+            
+        
+          },
+
+            mouseleave: function(){
+            this.countDown = 3000;
+            console.log (this.countDown)
+
           }
-          
-          setInterval(incrementa, this.countDown);
+        
     },
+ 
+    mounted(){
+        setInterval( this.downBtnClick, this.countDown)
+    }
 
 }).mount('#app')
 
